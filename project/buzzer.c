@@ -1,6 +1,8 @@
 #include <msp430.h>
 #include "libTimer.h"
 #include "buzzer.h"
+#include "lcdutils.h"
+#include "lcddraw.h"
 
 void buzzer_init(){
 
@@ -22,7 +24,52 @@ void buzzer_set_period(short cycles){ // buzzer clock = 2MHz.
 
 }
 
-
+void siren(int sixteenth_note){
+  
+  switch (sixteenth_note){
+  case 0:
+    //    clearScreen(COLOR_RED);
+    buzzer_set_period(F4_SHARP);
+    break;
+  case 2:
+    // clearScreen(COLOR_BLUE);
+    buzzer_set_period(G4);
+    break;
+  case 4:
+    // clearScreen(COLOR_RED);
+    buzzer_set_period(F4_SHARP);
+    break;
+  case 6:
+    // clearScreen(COLOR_BLUE);
+    buzzer_set_period(G4);
+    break;
+  case 8:
+    // clearScreen(COLOR_RED);
+    buzzer_set_period(F4_SHARP);
+    break;
+  case 10:
+    // clearScreen(COLOR_BLUE);
+    buzzer_set_period(G4);
+    break;
+  case 12:
+    // clearScreen(COLOR_RED);
+    buzzer_set_period(F4_SHARP);
+    break;
+  case 14:
+    //  clearScreen(COLOR_BLUE);
+    buzzer_set_period(G4);
+    break;
+  case 16:
+    // clearScreen(COLOR_RED);
+    buzzer_set_period(F4_SHARP);
+    break;
+  case 18:
+    // clearScreen(COLOR_BLUE);
+    buzzer_set_period(G4);
+    break;
+  }
+}
+    
 
 void song1(int sixteenth_note){
   switch (sixteenth_note){

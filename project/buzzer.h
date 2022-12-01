@@ -8,7 +8,7 @@ void song4(int sixteenth_note);
 void song2(int sixteenth_note);
 void song3(int sixteenth_note);
 void song1(int sixteenth_note);
-
+void siren(int sixteenth_note);
 
 
 extern char state;

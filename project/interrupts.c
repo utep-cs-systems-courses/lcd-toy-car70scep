@@ -12,7 +12,7 @@ void __interrupt_vec(WDT_VECTOR) WDT(){/* 250 interrupts/sec */
 
   static char count = 0;
   count++;
-
+  static char colorC = 0;
   switch (state) {
   case 1:
     song4(sixteenth_note);
@@ -28,16 +28,23 @@ void __interrupt_vec(WDT_VECTOR) WDT(){/* 250 interrupts/sec */
 
   case 3:
     newShape(COLOR_YELLOW,COLOR_BLACK);
-    count=0;
+    count = 0;
     break;
 
   case 4:
-    song1(sixteenth_note);
-    if (count == 45){
-	count = 0;
-	sixteenth_note++;
-      }
-    break;
+    siren(sixteenth_note);
+    if(count == 45){
+      sixteenth_note++;
+      count =0;
+    if(colorC==1){
+      clearScreen(COLOR_RED);
+      colorC--;
+    }else{
+      clearScreen(COLOR_BLUE);
+      colorC++;
+    }
+    }
+   break;
 
   default:
     buzzer_set_period(0);
